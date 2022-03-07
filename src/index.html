@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./math.js" type="text/javascript"></script>
-    <title>Document</title>
+    <title>Graphing Calculator using Javascript and HTML5</title>
     <style>
         #canvas1{
             background-color: white; 
@@ -20,6 +20,11 @@
             background-color: transparent;
             position: absolute;
             z-index: 5;
+        }
+        #canvas4{
+            background-color: transparent;
+            position: absolute;
+            z-index: 6;
         }
         body{
             width: 100%;
@@ -37,18 +42,22 @@
         }
     </style>
 </head>
-<body>
+<body bgcolor="#061f3b">
     <div class="input" style="background-color: #061f3b; width: 30%;">
         <span style="text-align: center; color: white;"><h1><b>Graphing Calculator by Saptarshi Dey</b></h1></span>
         <div style="margin: 5px; padding: 2px; text-align: center;">
-            <input type="text" id="expression" placeholder="Enter expression"/><br>
-            <input type="text" id="color" placeholder="Enter color"/><br>
-            <button onclick="DRAW()">Draw Graph</button><button onclick="CLEAR()">Clear Graph</button>
+            <input type="text" id="expression" placeholder="Enter expression"/><br/>
+            <input type="text" id="color" placeholder="Enter color"/><br/><br/>
+            <button onclick="DRAW()">Draw Graph</button><button onclick="CLEAR()">Clear Graph</button><br/><br/>
+            <input type="text" id="expression2" placeholder="Enter expression"/><br/>
+            <input type="text" id="color2" placeholder="Enter color"/><br/><br/>
+            <button onclick="DRAW2()">Draw Graph</button><button onclick="CLEAR2()">Clear Graph</button>
         </div>
     </div>
     <div id="container">
         <canvas id="canvas1" width="1000" height="1000"></canvas>
         <canvas id="canvas3" width="1000" height="1000"></canvas>
+        <canvas id="canvas4" width="1000" height="1000"></canvas>
         <canvas id="canvas2" width="1000" height="1000"></canvas>
     </div>
     <script src="./canvas.js"></script>

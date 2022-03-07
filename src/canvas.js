@@ -11,9 +11,11 @@ graphOffset={
 var canvas=document.getElementById("canvas1");  //This is a Javascript Canvas Element
 var canvas2=document.getElementById("canvas2");
 var canvas3=document.getElementById("canvas3");
+var canvas4=document.getElementById("canvas4");
 var ctx=canvas.getContext("2d");  //This is a Canvas Rendering Context
 var ctx2=canvas2.getContext("2d");
 var graph=canvas3.getContext("2d");
+var graph2=canvas4.getContext("2d");
 
 const LEFT = 0.5 - scaling*(Math.ceil(canvas.width / step) * step),
 limits=8.33,  //Very very important
@@ -22,9 +24,9 @@ right = 0.5 + scaling*canvas.width,
 bottom = 0.5 + scaling*canvas.height,
 n=300,xMin=0-limits,xMax=limits,yMin=0-limits,yMax=limits;
 
-var expr="",
-scope={ x: 0},
-graphColor="navy";
+var expr="",expr2="",
+scope={ x: 0}, scope2={ x: 0},
+graphColor="navy",graphColor2="red";
 
 function draw() {
     ctx.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
@@ -107,7 +109,7 @@ const reset = () => {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx2.setTransform(1, 0, 0, 1, 0, 0);
     graph.setTransform(1, 0, 0, 1, 0, 0);
-    //graph.translate(graphOffset.X , graphOffset.Y);
+    graph2.setTransform(1, 0, 0, 1, 0, 0);
     ctx2.clearRect(0,0,canvas2.width,canvas2.height); draw();
 }
 
@@ -119,7 +121,7 @@ function drawGraph(){
       percentX = i / (n - 1);
       mathX = percentX * (xMax - xMin) + xMin;
 
-      mathY = calculate(mathX);//Math.tan(mathX);
+      mathY = calculate(mathX);
       
       percentY = (yMax - mathY) / (yMax - yMin);
       xPixel = (percentX * canvas3.width);
@@ -131,7 +133,28 @@ function drawGraph(){
     graph.stroke();
 }
 
-/*
+function drawGraph2(){
+    var i,xPixel, yPixel,percentX, percentY,mathX, mathY;
+    graph2.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    graph2.beginPath();
+    console.log("Hello",graph2)
+    for(i = 3*(1-n); i < 3*n; i++){
+      percentX = i / (n - 1);
+      mathX = percentX * (xMax - xMin) + xMin;
+
+      mathY = calculate2(mathX);
+      
+      percentY = (yMax - mathY) / (yMax - yMin);
+      xPixel = (percentX * canvas3.width);
+      yPixel = (percentY * canvas3.height);
+      graph2.lineTo(xPixel,yPixel);
+    }
+    graph2.strokeStyle=graphColor2;
+    graph2.lineWidth=lineWidth;
+    graph2.stroke();
+}
+
+/* Code to disable scrolling
 canvas2.addEventListener("mousedown", e => {
     reset();
     start = getPos(e)
@@ -151,7 +174,6 @@ canvas2.addEventListener("mousemove", e => {
 canvas2.addEventListener("mousedown", e => {
     start = getPos(e)
 });
-
 canvas2.addEventListener("mouseup",()=>{
     start=null;
 });
@@ -165,16 +187,25 @@ canvas2.addEventListener("mousemove", e => {
     ctx.translate(pos.x - start.x, pos.y - start.y);
     ctx2.translate(pos.x - start.x, pos.y - start.y);
     graph.translate(pos.x - start.x, pos.y - start.y);
-    draw(); if(expr!=="") drawGraph(); start = pos;
+    graph2.translate(pos.x - start.x, pos.y - start.y); draw(); 
+    if(expr!=="") drawGraph();
+    if(expr2!=="") drawGraph2();
+    start = pos;
 });
 
-window.onload=()=>{
-    draw(); graph.translate(graphOffset.X , graphOffset.Y); //drawGraph();
+window.onload=()=>{ draw();
+    graph.translate(graphOffset.X , graphOffset.Y); 
+    graph2.translate(graphOffset.X , graphOffset.Y); 
 }
 
 function calculate(p){
     scope.x=p;
     return math.evaluate(expr,scope);
+}
+
+function calculate2(p){
+    scope2.x=p;
+    return math.evaluate(expr2,scope2);
 }
 
 function DRAW(){
@@ -184,5 +215,25 @@ function DRAW(){
 }
 
 function CLEAR(){
-    reset(); graph.translate(graphOffset.X , graphOffset.Y); graph.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    expr=""; reset();
+    graph.translate(graphOffset.X , graphOffset.Y);
+    graph2.translate(graphOffset.X , graphOffset.Y);
+    graph.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    graph2.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    if(expr2) drawGraph2();
+}
+
+function DRAW2(){
+    CLEAR2();
+    expr2=document.getElementById("expression2").value;
+    graphColor2=document.getElementById("color2").value; drawGraph2();
+}
+
+function CLEAR2(){
+    expr2=""; reset();
+    graph.translate(graphOffset.X , graphOffset.Y);
+    graph2.translate(graphOffset.X , graphOffset.Y); 
+    graph.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    graph2.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
+    if(expr) drawGraph();
 }
