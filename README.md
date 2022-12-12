@@ -1,4 +1,4 @@
 # Graphing-Calculator using Javascript Canvas and MathJS
-![Project Demo1](https://drive.google.com/uc?id=1QzYswGk3WxwZPPAWhIDpAyY7Y0jpJJTv)
-![Project Demo2](https://drive.google.com/uc?id=1R-A5r3XsAD0ZDYgy6cYFbdFF4erA3Cyz)
-![Project Demo3](https://drive.google.com/uc?id=1R4G3w4KZz0EEKrRv2g8NJTYW4H8P6Qhv)
+![Graph1](https://user-images.githubusercontent.com/67017303/207136391-b56c755b-273c-4ea3-851c-dddd66e18a06.png)
+![Graph2](https://user-images.githubusercontent.com/67017303/207136420-ea88d2b8-8eef-4d55-9831-294b0b24eeb9.png)
+![Graph3](https://user-images.githubusercontent.com/67017303/207136432-1009f7f2-67d9-4f61-bd50-8d4ec3bf8d46.png)
