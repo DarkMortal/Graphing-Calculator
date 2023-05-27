@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Graphing Calculator using Javascript and HTML5</title>
+</head>
+
+<body>
+    <div class="input" style="background-color: #061f3b; width: 30%;">
+        <span style="text-align: center; color: white;">
+            <h1><b>Graphing Calculator by Saptarshi Dey</b></h1>
+        </span>
+        <div style="margin: 5px; padding: 2px; text-align: center;">
+            <input type="text" class="bars" id="expression" placeholder="Enter expression" /><br />
+            <input type="text" class="bars" id="color" placeholder="Enter color" /><br /><br />
+            <button id="dr1">Draw Graph</button><button id="clr1">Clear Graph</button><br /><br />
+            <input type="text" class="bars" id="expression2" placeholder="Enter expression" /><br />
+            <input type="text" class="bars" id="color2" placeholder="Enter color" /><br /><br />
+            <button id="dr2">Draw Graph</button><button id="clr2">Clear Graph</button>
+        </div>
+    </div>
+    <div id="container">
+        <canvas id="canvas1" width="1000" height="1000"></canvas>
+        <canvas id="canvas3" width="1000" height="1000"></canvas>
+        <canvas id="canvas4" width="1000" height="1000"></canvas>
+        <canvas id="canvas2" width="1000" height="1000"></canvas>
+    </div>
+    <!--<script src="../partytown/partytown.js"></script>-->
+    <script type="module" src="./canvas.js"></script>
+</body>
+</html>

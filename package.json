@@ -1,0 +1,24 @@
+{
+  "name": "graphing-calculator",
+  "version": "1.0.0",
+  "description": "Graphing Calculator by Saptarshi Dey",
+  "main": "index.js",
+  "author": "Saptarshi Dey",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node index.js",
+    "devStart": "nodemon index.js",
+    "build": "npx vite build --emptyOutDir",
+    "partytown": "npx partytown copylib partytown",
+    "view": "npx vite preview"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "@builder.io/partytown": "^0.8.0",
+    "mathjs": "^11.8.0",
+    "vite": "^4.3.9"
+  }
+}

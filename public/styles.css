@@ -1,0 +1,42 @@
+#canvas1{
+    background-color: white; 
+    position: absolute;       
+}
+#canvas2{
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
+}
+#canvas3{
+    background-color: transparent;
+    position: absolute;
+    z-index: 5;
+}
+#canvas4{
+    background-color: transparent;
+    position: absolute;
+    z-index: 6;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    background-color: #061f3b;
+}
+#container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    float: right;
+    overflow: auto;
+    flex-grow: 1;
+}
+.bars{
+    font-size: 1.5rem;
+}
+button{
+    font-size: 1rem;
+}
