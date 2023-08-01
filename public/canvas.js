@@ -82,7 +82,7 @@ function draw() {
     ctx.strokeStyle = "#888";
     ctx.stroke();
 
-    ctx2.font = "15px Arial";
+    ctx2.font = "15px Serif";
     ctx2.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
     ctx2.fillText("0", coordinates.X, coordinates.Y);
     for (x = 0; x <= 12000; x += 60) {
@@ -140,7 +140,6 @@ function drawGraph2() {
     var i, xPixel, yPixel, percentX, percentY, mathX, mathY;
     graph2.clearRect(LEFT, TOP, right - LEFT, bottom - TOP);
     graph2.beginPath();
-    console.log("Hello", graph2)
     for (i = 3 * (1 - n); i < 3 * n; i++) {
         percentX = i / (n - 1);
         mathX = percentX * (xMax - xMin) + xMin;
