@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="./lib/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.1/math.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    </script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>-->
+    <link rel="stylesheet" href="./src/style.css" />
+    <script src="./src/script.js"></script>
+</head>
+
+<body>
+    <h1><u>Graphing Calculator <span id="check"></span></u></h1>
+    <div class="container">
+        <div>
+            <strong>Graph-1</strong>
+            <div class="eqn">
+                <input type="text" id="eq1" placeholder="Enter first equation here" />
+                <input type="color" value="#000000" id="col1" />
+            </div>
+            <div class="eqn">
+                <button>Clear</button>
+                <button>Draw</button>
+            </div>
+            <div class="eqn">
+                <input type="number" placeholder="lower limit"/>
+                <input type="number" placeholder="upper limit"/>
+                <input type="color" value="#000000" id="mark_col1" />
+            </div>
+            <div class="eqn">
+                <button>Mark area</button><button>Clear area</button>
+            </div><br/>
+            <strong>Graph-2</strong>
+            <div class="eqn">
+                <input type="text" id="eq2" placeholder="Enter second equation here" />
+                <input type="color" value="#000000" id="col2" />
+            </div>
+            <div class="eqn">
+                <button>Clear</button>
+                <button>Draw</button>
+            </div>
+            <div class="eqn">
+                <input type="number" placeholder="lower limit"/>
+                <input type="number" placeholder="upper limit"/>
+                <input type="color" value="#000000" id="mark_col2" /><br/>
+            </div>
+            <div class="eqn">
+                <button>Mark area</button><button>Clear area</button>
+            </div><br/>
+            <strong>Controls</strong>
+            <div class="eqn">
+                <button onClick="zoomIn()">Zoom In</button> <button onClick="zoomOut()">Zoom Out</button>
+            </div>
+            <div class="pointer">
+                Pointer at X: <span id="x">0</span> Y: <span id="y">0</span>
+            </div>
+        </div>
+        <div id="canvas"></div>
+    </div>
+    <script>
+        window.onresize = () => {
+            document.getElementById("check").innerText = `${innerWidth}*${innerHeight}`;
+        }
+    </script>
+</body>
+
+</html>
